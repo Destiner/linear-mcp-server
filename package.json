@@ -1,8 +1,7 @@
 {
-  "name": "linear-mcp-server",
+  "name": "mcp-linear",
   "version": "0.1.0",
   "description": "A Model Context Protocol server for the Linear API.",
-  "private": true,
   "type": "module",
   "bin": {
     "linear-mcp-server": "./build/index.js"
