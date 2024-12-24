@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { LinearClient, LinearDocument, type Issue } from '@linear/sdk';
 import type { IssueFilter } from '@linear/sdk/dist/_generated_documents.js';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
