@@ -4,7 +4,7 @@
   "description": "A Model Context Protocol server for the Linear API.",
   "type": "module",
   "bin": {
-    "mcp-linear": "./build/index.js"
+    "mcp-linear": "build/index.js"
   },
   "files": [
     "build"
