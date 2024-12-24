@@ -11,9 +11,9 @@
   ],
   "scripts": {
     "build": "tsc && shx chmod +x build/*.js",
-    "prepare": "npm run build",
+    "prepare": "bun run build",
     "watch": "tsc --watch",
-    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+    "inspector": "bunx @modelcontextprotocol/inspector build/index.js"
   },
   "dependencies": {
     "@linear/sdk": "^33.0.0",
