@@ -16,10 +16,7 @@ This server provides integration with Linear's issue tracking system through MCP
   "mcpServers": {
     "linear": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-linear"
-      ],
+      "args": ["-y", "mcp-linear"],
       "env": {
         "LINEAR_API_KEY": "your_linear_api_key_here"
       }
@@ -33,6 +30,7 @@ This server provides integration with Linear's issue tracking system through MCP
 ### Tools
 
 1. **`linear_create_issue`**: Create a new Linear issues
+
    - Required inputs:
      - `title` (string): Issue title
      - `teamId` (string): Team ID to create issue in
@@ -42,6 +40,7 @@ This server provides integration with Linear's issue tracking system through MCP
      - `status` (string): Initial status name
 
 2. **`linear_update_issue`**: Update existing issues
+
    - Required inputs:
      - `id` (string): Issue ID to update
    - Optional inputs:
@@ -51,6 +50,7 @@ This server provides integration with Linear's issue tracking system through MCP
      - `status` (string): New status name
 
 3. **`linear_search_issues`**: Search issues with flexible filtering
+
    - Optional inputs:
      - `query` (string): Text to search in title/description
      - `teamId` (string): Filter by team
@@ -61,6 +61,7 @@ This server provides integration with Linear's issue tracking system through MCP
      - `limit` (number, default: 10): Max results
 
 4. **`linear_get_user_issues`**: Get issues assigned to a user
+
    - Optional inputs:
      - `userId` (string): User ID (omit for authenticated user)
      - `includeArchived` (boolean): Include archived issues
