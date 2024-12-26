@@ -911,10 +911,10 @@ server.setRequestHandler(
                 text: `Found ${issues.length} issues:\n${issues
                   .map(
                     // @ts-ignore
-                    (issue: LinearIssueResponse) =>
-                      `- ${issue.identifier}: ${issue.title}\n  Priority: ${
-                        issue.priority || 'None'
-                      }\n  Status: ${issue.status || 'None'}\n  ${issue.url}`,
+                    (issue) =>
+                      `- ${issue.metadata.identifier}: ${issue.name}\n  Priority: ${
+                        issue.metadata.priority || 'None'
+                      }\n  Status: ${issue.metadata.status || 'None'}\n  ${issue.uri}`,
                   )
                   .join('\n')}`,
               },
