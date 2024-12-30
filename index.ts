@@ -440,7 +440,7 @@ if (!apiKey) {
 const linearClient = new LinearMCPClient(apiKey);
 
 const createIssueTool: Tool = {
-  name: 'linear_create_issue',
+  name: 'create_issue',
   description:
     "Creates a new Linear issue with specified details. Use this to create tickets for tasks, bugs, or feature requests. Returns the created issue's identifier and URL. Required fields are title and teamId, with optional description, priority (0-4, where 0 is no priority and 1 is urgent), and status.",
   inputSchema: {
@@ -457,7 +457,7 @@ const createIssueTool: Tool = {
 };
 
 const updateIssueTool: Tool = {
-  name: 'linear_update_issue',
+  name: 'update_issue',
   description:
     "Updates an existing Linear issue's properties. Use this to modify issue details like title, description, priority, or status. Requires the issue ID and accepts any combination of updatable fields. Returns the updated issue's identifier and URL.",
   inputSchema: {
@@ -474,7 +474,7 @@ const updateIssueTool: Tool = {
 };
 
 const searchIssuesTool: Tool = {
-  name: 'linear_search_issues',
+  name: 'search_issues',
   description:
     'Searches Linear issues using flexible criteria. Supports filtering by any combination of: title/description text, team, status, assignee, labels, priority (1=urgent, 2=high, 3=normal, 4=low), and estimate. Returns up to 10 issues by default (configurable via limit).',
   inputSchema: {
@@ -519,7 +519,7 @@ const searchIssuesTool: Tool = {
 };
 
 const getUserIssuesTool: Tool = {
-  name: 'linear_get_user_issues',
+  name: 'get_user_issues',
   description:
     "Retrieves issues assigned to a specific user or the authenticated user if no userId is provided. Returns issues sorted by last updated, including priority, status, and other metadata. Useful for finding a user's workload or tracking assigned tasks.",
   inputSchema: {
@@ -543,7 +543,7 @@ const getUserIssuesTool: Tool = {
 };
 
 const addCommentTool: Tool = {
-  name: 'linear_add_comment',
+  name: 'add_comment',
   description:
     "Adds a comment to an existing Linear issue. Supports markdown formatting in the comment body. Can optionally specify a custom user name and avatar for the comment. Returns the created comment's details including its URL.",
   inputSchema: {
@@ -836,7 +836,7 @@ server.setRequestHandler(
       const args = request.params.arguments;
 
       switch (request.params.name) {
-        case 'linear_create_issue': {
+        case 'create_issue': {
           if (!args.title || !args.teamId) {
             throw new Error('Missing required fields: title and teamId');
           }
@@ -862,7 +862,7 @@ server.setRequestHandler(
           };
         }
 
-        case 'linear_update_issue': {
+        case 'update_issue': {
           if (!args.id) {
             throw new Error('Missing required field: id');
           }
@@ -888,7 +888,7 @@ server.setRequestHandler(
           };
         }
 
-        case 'linear_search_issues': {
+        case 'search_issues': {
           const searchArgs: SearchIssuesArgs = {
             query: args.query ? String(args.query) : undefined,
             teamId: args.teamId ? String(args.teamId) : undefined,
@@ -922,7 +922,7 @@ server.setRequestHandler(
           };
         }
 
-        case 'linear_get_user_issues': {
+        case 'get_user_issues': {
           const issues = await linearClient.getUserIssues({
             userId: args.userId ? String(args.userId) : undefined,
             includeArchived: args.includeArchived
@@ -949,7 +949,7 @@ server.setRequestHandler(
           };
         }
 
-        case 'linear_add_comment': {
+        case 'add_comment': {
           if (!args.issueId || !args.body) {
             throw new Error('Missing required fields: issueId and body');
           }
