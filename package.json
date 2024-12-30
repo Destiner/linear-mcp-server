@@ -1,6 +1,6 @@
 {
   "name": "mcp-linear",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A Model Context Protocol server for the Linear API.",
   "type": "module",
   "bin": {
